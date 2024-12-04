@@ -1,7 +1,8 @@
 import PostsInput from "../Components/postInput";
 
-async function Posts() {
-  let res = await fetch("https://dummyjson.com/posts");
+async function Posts({searchParams}) {
+    const {q,limit=10,skip=0}=searchParams;
+  let res = await fetch(q?`https://dummyjson.com/posts/search?q=${q}&limit=${limit}$skip=${skip}`:`https://dummyjson.com/posts?limit=${limit}&skip=${skip}`);
   res = await res.json();
   return (
     <div className="my-5">

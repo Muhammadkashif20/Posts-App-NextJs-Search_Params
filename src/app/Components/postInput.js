@@ -5,6 +5,7 @@ const PostsInput = () => {
     const searchParams = useSearchParams();
     const pathname = usePathname();
     const { replace } = useRouter();
+    
     const handleInput=(search)=>{
         const params = new URLSearchParams(searchParams);
         if (search) {
